@@ -1,39 +1,27 @@
+// Get the result input element
+
+const buttons = document.querySelectorAll("button");
+
+  // Retrieve the clicked button
 
 
-const buttons = document.querySelectorAll('button');
+const resultInput = document.getElementById("result");
+// Create a function to handle button clicks 
 
-function handleClick(event) {
- const clickedButton = event.target;
+let expression = "";
 
- console.log('Bouton cliqué:', clickedButton.textContent);
-}
-
-buttons.forEach(button => button.addEventListener('click', handleClick));
-
-const resultInput = document.getElementById('result');
 function handleClick(event) {
   const clickedButton = event.target;
   resultInput.value = clickedButton.textContent;
-}
-document.querySelectorAll('button').forEach(button => button.addEventListener('click', handleClick));
-
-
-let expression = '';
-
-function handleClick(event) {
-  const clickedButton = event.target;
-  const buttonValue = clickedButton.textContent;
-  if (buttonValue === 'AC') {
-    expression = '';
+  if (buttonValue === "AC") {
+    expression = "";
     resultInput.value = expression;
-  }
-
-  else if (buttonValue === '=') {
+  } else if (buttonValue === "=") {
     try {
       expression = eval(expression);
       resultInput.value = expression;
     } catch (error) {
-      resultInput.value = 'Erreur';
+      resultInput.value = "Erreur";
     }
   } else {
     expression += buttonValue;
@@ -41,8 +29,8 @@ function handleClick(event) {
   }
 }
 
-buttons.forEach((button) => button.addEventListener('click', handleClick));
+  // Update the value of the result input with the text of the clicked button
 
-
-
-
+document
+  .querySelectorAll("button")
+  .forEach((button) => button.addEventListener("click", handleClick));
